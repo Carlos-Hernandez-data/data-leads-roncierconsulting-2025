@@ -1,0 +1,54 @@
+----------------------------------------
+-- MEDIDAS DAX – PROYECTO LEADS 2025
+----------------------------------------
+
+1-- Total de Leads
+Total Leads =
+COUNTROWS(Fact_Leads)
+
+2-- Apertura 1er Correo - Conteo
+Apertura 1er Correo - Conteo =
+CALCULATE(
+    COUNTROWS( Fact_Leads ),
+    Fact_Leads[Abrio1erCorreo] = TRUE ()
+)
+
+3-- Apertura 1er Correo % 
+ Apertura 1er Correo % =
+DIVIDE (
+    [Apertura 1er Correo – Conteo],
+    [Total Leads],
+    0
+)
+
+4-- Apertura Seguimiento – Conteo
+Apertura Seguimiento – Conteo = 
+CALCULATE (
+    COUNTROWS ( Fact_Leads ),
+    Fact_Leads[AbrioSeg] = TRUE ()
+)
+
+5-- Apertura Seguimiento %
+Apertura Seguimiento % = 
+DIVIDE (
+    [Apertura Seguimiento – Conteo],
+    [Total Leads],
+    0
+)
+
+6-- Apertura 1er Correo por País
+Apertura 1er Correo por País = 
+SUMX(Fact_Leads, IF(Fact_Leads[Abrio1erCorreo], 1, 0))
+
+
+7-- Apertura 1er Correo por País %
+Apertura 1er Correo por País % = 
+DIVIDE (
+    CALCULATE (
+        COUNTROWS ( Fact_Leads ),
+        Fact_Leads[Abrio1erCorreo] = TRUE ()
+    ),
+    CALCULATE ( COUNTROWS ( Fact_Leads ) ),
+    0
+)
+
