@@ -19,7 +19,7 @@ El análisis se basa en una base real de leads utilizada en procesos de prospecc
 - Construir un dashboard ejecutivo orientado a toma de decisiones.
 
 ## Estructura del repositorio
-
+```
 data-leads-roncierconsulting-2025/
 ├── 01_data/leads_clean.xlsx
 ├── 02_dax/medidas_dax.txt
@@ -27,7 +27,7 @@ data-leads-roncierconsulting-2025/
 ├── 04_pbix/leads-rc-dashboard.pbix
 ├── 05_sql/sql_modelado_y_analisis.sql
 └── 06_README.md
-
+```
 ## Datos utilizados
 
 - **Fuente:** Base interna de prospección (datos anonimizados).
